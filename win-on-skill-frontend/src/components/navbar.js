@@ -1,11 +1,30 @@
 import React,{Component} from 'react';
-
+import 'bootstrap/dist/css/bootstrap.css';
+import {Link} from 'react-router-dom';
 export default class NavBar extends Component{
     render(){
         return(
-            <>
-                <h1>NavBar Space</h1>
-            </>
+            <React.Fragment>
+                <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <Link to='/' className="navbar-brand">Win On Skill</Link>
+                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div className="navbar-nav">
+                            <Link to='Games' className="nav-item nav-link active" href="">Games <span className="sr-only">(current)</span>
+                            </Link>
+                            <Link to='Results' className="nav-item nav-link" href="">Results
+                            </Link>
+                            <Link to='Updates' className="nav-item nav-link" href="">Updates
+                            </Link>
+                            
+                            <a className="nav-item nav-link disabled" href="#" tabIndex="-1" aria-disabled="true">Profile</a>
+                        </div>
+                    </div>
+                    <h4 className="navbar-brand">WIN ON SKILL</h4>
+                </nav>
+           </React.Fragment>
         )
     }
 }
