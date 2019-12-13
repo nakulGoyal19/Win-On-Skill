@@ -18,8 +18,10 @@ export default class NavBar extends Component{
                             </Link>
                             <Link to='Updates' className="nav-item nav-link" href="">Updates
                             </Link>
+                            <Link to='Profile' className="nav-item nav-link" href="">Profile
+                            </Link>
                             
-                            <a className="nav-item nav-link disabled" href="#" tabIndex="-1" aria-disabled="true">Profile</a>
+                            
                         </div>
                     </div>
                     <h4 className="navbar-brand">WIN ON SKILL</h4>

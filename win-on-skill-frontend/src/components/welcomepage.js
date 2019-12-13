@@ -7,15 +7,19 @@ export default class WelcomePage extends Component{
             return(
                 <>
                     <h2>Welcome Page Space</h2>
-                    <Link to='SignIn'>SignIn  </Link>
-                    <Link to='SignUp'>  SignUp</Link>
+                    <h5>You are in a guest session
+                    <Link to='SignIn'> SignIn  </Link>
+                    or
+                    <Link to='SignUp'>  SignUp </Link>
+                    to gain some coins .</h5>
                 </>
             )
         }
         else{
             return(
                 <>
-                    <h2> welcome this person</h2>
+                    <h2> welcome '{this.props.user.username}'</h2>
+                    <h5>You have {this.props.user.coins} coins.</h5>
                 </>
             )
         }
