@@ -12,13 +12,13 @@ export default class NavBar extends Component{
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className="navbar-nav">
-                            <Link to='Games' className="nav-item nav-link active" href="">Games <span className="sr-only">(current)</span>
+                            <Link to='/Games' className="nav-item nav-link active" href="">Games <span className="sr-only">(current)</span>
                             </Link>
-                            <Link to='Results' className="nav-item nav-link" href="">Results
+                            <Link to='/Results' className="nav-item nav-link" href="">Results
                             </Link>
-                            <Link to='Updates' className="nav-item nav-link" href="">Updates
+                            <Link to='/Updates' className="nav-item nav-link" href="">Updates
                             </Link>
-                            <Link to='Profile' className="nav-item nav-link" href="">Profile
+                            <Link to='/Profile' className="nav-item nav-link" href="">Profile
                             </Link>
                             
                             
