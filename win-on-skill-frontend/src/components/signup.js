@@ -50,7 +50,7 @@ export default class SignUp extends Component{
         }
         else{
             return(
-                <Link to='/'>You're In</Link>
+                <h4>Sign Up Successful<Link to='/'> Click here </Link>to get to welcome page</h4>
             )
             
         }

@@ -48,7 +48,7 @@ export default class SignIn extends Component{
         else
         {
             return(
-                <Link to='/'>You're In</Link>
+                <h4>Sign In Successful<Link to='/'> Click here </Link>to get to welcome page</h4>
             )
         }
     }

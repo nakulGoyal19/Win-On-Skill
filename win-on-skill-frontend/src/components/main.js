@@ -16,7 +16,7 @@ export default class Main extends Component{
             signedIn:'false',
             coins:0,
             data:[
-                {id:1,username:'x',password:'xpass',coins:56},
+                {id:1,username:'x',password:'xpass',coins:560},
                 {id:2,username:'y',password:'ypass',coins:170}
             ],
             currentUser:{}
@@ -91,9 +91,10 @@ export default class Main extends Component{
         //console.log('In');
     }
 
-    changeCoins=(x,event)=>{
+    changeCoins=(x)=>{
         console.log('In changeCoins')
-        event.preventDefault();
+        console.log(x);
+        //event.preventDefault();
         let c=this.state.currentUser;
         if(x===1){
             alert('You Won Coins Added 20');
