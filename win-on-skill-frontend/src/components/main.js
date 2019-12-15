@@ -17,7 +17,7 @@ export default class Main extends Component{
             coins:0,
             data:[
                 {id:1,username:'x',password:'xpass',coins:560},
-                {id:2,username:'y',password:'ypass',coins:170}
+                {id:2,username:'y',password:'ypass',coins:20}
             ],
             currentUser:{}
         }
