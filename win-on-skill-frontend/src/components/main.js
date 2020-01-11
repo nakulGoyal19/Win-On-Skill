@@ -9,6 +9,7 @@ import SignUp from './signup.js'
 import Profile from './profile.js'
 import {Route} from 'react-router-dom'
 import PickAHand from './games/pickahand.js'
+import Gomoku from './games/gomoku/main.js'
 export default class Main extends Component{
     constructor(){
         super();
@@ -16,8 +17,8 @@ export default class Main extends Component{
             signedIn:'false',
             coins:0,
             data:[
-                {id:1,username:'x',password:'xpass',coins:560},
-                {id:2,username:'y',password:'ypass',coins:20}
+                {id:1,username:'x',password:'xpass',coins:20},
+                {id:2,username:'y',password:'ypass',coins:200}
             ],
             currentUser:{}
         }
@@ -122,7 +123,7 @@ export default class Main extends Component{
                 <Route exact path='/Games' render={()=><Games signedIn={this.state.signedIn} user={this.state.currentUser}/>}></Route>
                 <Route exact path='/Results' render={()=><Results/>}></Route>
                 <Route exact path='/Updates' render={()=><Updates/>}></Route>
-
+        <Route exact path='/Games/Gomoku' render={()=><Gomoku/>}></Route>
                 <Route exact path='/Games/pickahand' render={()=><PickAHand signedIn={this.state.signedIn} user={this.state.currentUser} changeCoins={this.changeCoins}/>}></Route>
 
             </>
