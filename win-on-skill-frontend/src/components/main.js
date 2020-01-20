@@ -10,6 +10,9 @@ import Profile from './profile.js'
 import {Route} from 'react-router-dom'
 import PickAHand from './games/pickahand.js'
 import Gomoku from './games/gomoku/main.js'
+import TicTacToe from './games/tictactoe/App.js'
+//import Sudoku from './games/Sudoku/src/index.js'
+
 export default class Main extends Component{
     constructor(){
         super();
@@ -123,8 +126,10 @@ export default class Main extends Component{
                 <Route exact path='/Games' render={()=><Games signedIn={this.state.signedIn} user={this.state.currentUser}/>}></Route>
                 <Route exact path='/Results' render={()=><Results/>}></Route>
                 <Route exact path='/Updates' render={()=><Updates/>}></Route>
-        <Route exact path='/Games/Gomoku' render={()=><Gomoku/>}></Route>
+                <Route exact path='/Games/Gomoku' render={()=><Gomoku/>}></Route>
                 <Route exact path='/Games/pickahand' render={()=><PickAHand signedIn={this.state.signedIn} user={this.state.currentUser} changeCoins={this.changeCoins}/>}></Route>
+        <Route exact path='/Games/TicTacToe-SinglePlayer' render={()=><TicTacToe x={0} user={this.state.currentUser} changeCoins={this.changeCoins}/>}></Route>
+                <Route exact path='/Games/TicTacToe-MultiPlayer' render={()=><TicTacToe x={1}/>}></Route>
 
             </>
         )
