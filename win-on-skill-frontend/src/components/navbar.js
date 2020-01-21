@@ -14,7 +14,7 @@ export default class NavBar extends Component{
                         <div className="navbar-nav">
                             <Link to='/Games' className="nav-item nav-link active" href="">Games <span className="sr-only">(current)</span>
                             </Link>
-                            <Link to='/Results' className="nav-item nav-link" href="">Results
+                            <Link to='/Quiz' className="nav-item nav-link" href="">Quiz
                             </Link>
                             <Link to='/Updates' className="nav-item nav-link" href="">Updates
                             </Link>

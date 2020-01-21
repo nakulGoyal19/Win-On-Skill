@@ -2,7 +2,6 @@ import React,{Component} from 'react';
 import NavBar from './navbar.js'
 import WelcomePage from './welcomepage.js'
 import Games from './games.js'
-import Results from './results.js'
 import Updates from './updates.js'
 import SignIn from './signin.js'
 import SignUp from './signup.js'
@@ -11,6 +10,7 @@ import {Route} from 'react-router-dom'
 import PickAHand from './games/pickahand.js'
 import Gomoku from './games/gomoku/main.js'
 import TicTacToe from './games/tictactoe/App.js'
+import Quiz from './quiz.js';
 //import Sudoku from './games/Sudoku/src/index.js'
 
 export default class Main extends Component{
@@ -124,11 +124,11 @@ export default class Main extends Component{
                 <Route exact path='/SignUp' render={()=><SignUp signedIn={this.state.signedIn} changeStateToTrue={this.changeStateToTrueBySignUp}/>}></Route>
                 <Route exact path='/Profile' render={()=><Profile signedIn={this.state.signedIn} user={this.state.currentUser} changeStateToFalse={()=>this.changeStateToFalse}/>}></Route>
                 <Route exact path='/Games' render={()=><Games signedIn={this.state.signedIn} user={this.state.currentUser}/>}></Route>
-                <Route exact path='/Results' render={()=><Results/>}></Route>
+                <Route exact path='/Quiz' render={()=><Quiz/>}></Route>
                 <Route exact path='/Updates' render={()=><Updates/>}></Route>
                 <Route exact path='/Games/Gomoku' render={()=><Gomoku/>}></Route>
                 <Route exact path='/Games/pickahand' render={()=><PickAHand signedIn={this.state.signedIn} user={this.state.currentUser} changeCoins={this.changeCoins}/>}></Route>
-        <Route exact path='/Games/TicTacToe-SinglePlayer' render={()=><TicTacToe x={0} user={this.state.currentUser} changeCoins={this.changeCoins}/>}></Route>
+                <Route exact path='/Games/TicTacToe-SinglePlayer' render={()=><TicTacToe x={0} user={this.state.currentUser} changeCoins={this.changeCoins}/>}></Route>
                 <Route exact path='/Games/TicTacToe-MultiPlayer' render={()=><TicTacToe x={1}/>}></Route>
 
             </>
