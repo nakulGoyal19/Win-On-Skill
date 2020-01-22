@@ -19,13 +19,23 @@ export default class Main extends Component{
         this.state={
             signedIn:'false',
             coins:0,
-            data:[
-                {id:1,username:'x',password:'xpass',coins:20},
-                {id:2,username:'y',password:'ypass',coins:200}
-            ],
+            data:[],
             currentUser:{}
         }
 
+    }
+    componentDidMount(){
+        console.log('did mount')
+        this.getUserData();
+    }
+    getUserData = () => {
+        console.log('in userdata');
+        fetch('http://localhost:8082/data')
+        .then(res=>res.json())
+        .then(res=>{
+            console.log(JSON.stringify(res));
+            this.setState({data:res})
+        })
     }
     changeStateToTrueBySignUp=(v,event)=>
     {
@@ -65,9 +75,10 @@ export default class Main extends Component{
     {
         event.preventDefault();
         console.log('In signin')
+        console.log(this.state.data)
         let found='false'
         let user=''
-        console.log(this.state.data);
+        //console.log(this.state.data);
         this.state.data.map((d,index)=>{
             if(d.username===v.username && d.password===v.password){
                 found='true';
@@ -82,9 +93,10 @@ export default class Main extends Component{
                 })
         }
         else{
+            console.log('found false')
             alert("username and password don't match")
         }
-        console.log(this.state)
+        //console.log(this.state)
     }
     changeStateToFalse=()=>
     {
