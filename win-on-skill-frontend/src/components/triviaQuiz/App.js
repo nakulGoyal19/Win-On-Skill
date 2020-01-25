@@ -12,7 +12,7 @@ class App extends Component {
       questions: [],
       score: 0,
       current: 0,
-      loading: undefined
+      loading: false
     }
   }
 
@@ -26,15 +26,20 @@ class App extends Component {
 
   async componentDidMount() {
     try {
-      this.setState({ loading: true })
-      this.setState({ questions: await quizData(), loading: false })
+      this.setState({ loading: false })
+      const question= await quizData();
+      console.log(question);
+      this.setState({ questions: question, loading: true })
     } catch (err) {
       console.log(err)
+      console.log('not loaded')
+      console.log(this.state.loading);
     }
   }
 
   render() {
-    if (this.state.loading === false) {
+    
+    if (this.state.loading === true) {
       if (this.state.current >= this.state.questions.length) {
         var scorebox = ''
         var results = <Results {...this.state} />

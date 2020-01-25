@@ -26,9 +26,9 @@ export default class Main extends Component{
     }
     componentDidMount(){
         console.log('did mount')
-        this.getUserData();
+        //this.getUserData();
     }
-    getUserData = () => {
+    /*getUserData = () => {
         console.log('in userdata');
         fetch('http://localhost:8082/data')
         .then(res=>res.json())
@@ -36,46 +36,74 @@ export default class Main extends Component{
             console.log(JSON.stringify(res));
             this.setState({data:res})
         })
-    }
+    }*/
     changeStateToTrueBySignUp=(v,event)=>
     {
         event.preventDefault();
-        console.log(this.state.data);
+        //console.log(this.state.data);
 
-        let found='false';
-        this.state.data.map((d,index)=>{
-            console.log(d)
-            if(d.username===v.username){
-                found='true';
-            }  
-        })
-
-        if(found==='false'){
+        
+            console.log('to add data');
             const newId=this.state.data.length+1;
             const newData={
-                id:newId,
                 username:v.username,
                 password:v.password,
                 coins:v.coins
             };
-            let d=this.state.data;
+            fetch('http://localhost:8082/addUser',{
+                method:"POST",
+                headers:{"Content-Type":"application/json"},
+                body: JSON.stringify(newData)
+            })
+            .then(res=>res.json())
+            .then(res=>{
+                console.log(res);
+                if(res.valid){
+                    this.setState({
+                        signedIn:'true',
+                        currentUser:newData
+                    })
+                }
+                else{
+                    alert('account with this username already exist');
+                }
+            })
+
+            /*let d=this.state.data;
             d.push(newData);
             this.setState({
                 signedIn:'true',
                 data:d,
                 currentUser:newData
-            })
-        }
-        else
-        {
-            alert('Username already taken.')
-        }
+            })*/
     }
     changeStateToTrueBySignIn=(v,event)=>
     {
         event.preventDefault();
         console.log('In signin')
-        console.log(this.state.data)
+
+        fetch('http://localhost:8082/checkUser',{
+                method:"POST",
+                headers:{"Content-Type":"application/json"},
+                body: JSON.stringify(v)
+            })
+            .then(res=>res.json())
+            .then(res=>{
+                console.log(res);
+                if(res.error){
+                    alert('username and password not match');
+                }
+                else{
+                    this.setState({
+                        signedIn:'true',
+                        currentUser:res
+                    })
+                }
+                
+            })
+            
+        console.log(this.currentUser);
+        /*console.log(this.state.data)
         let found='false'
         let user=''
         //console.log(this.state.data);
@@ -96,7 +124,7 @@ export default class Main extends Component{
             console.log('found false')
             alert("username and password don't match")
         }
-        //console.log(this.state)
+        //console.log(this.state)*/
     }
     changeStateToFalse=()=>
     {
@@ -113,18 +141,31 @@ export default class Main extends Component{
         //event.preventDefault();
         let c=this.state.currentUser;
         if(x===1){
+
             alert('You Won Coins Added 20');
-            c.coins+=20;
-            this.setState({
-                currentUser:c
+            fetch(`http://localhost:8082/changeCoins/${x}`,{
+                method: 'PUT',
+                headers:{"Content-Type":"application/json"},
+                body: JSON.stringify(this.state.currentUser)
+            })
+            .then(res=>res.json())
+            .then(res=>{
+                this.setState({currentUser:res})
             })
         }
         else{
+
             alert('You lost Coins Detucted 20')
-            c.coins-=20;
-            this.setState({
-                currentUser:c
+            fetch(`http://localhost:8082/changeCoins/${x}`,{
+                method: 'PUT',
+                headers:{"Content-Type":"application/json"},
+                body: JSON.stringify(this.state.currentUser)
             })
+            .then(res=>res.json())
+            .then(res=>{
+                this.setState({currentUser:res})
+            })
+            
         }
     }
     render(){
