@@ -14,6 +14,17 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         require: true
+    },
+    games:{
+        gamesPlayed:{
+            type: String
+        },
+        gamesWon:{
+            type: String
+        },
+        gamesLost:{
+            type: String
+        }
     }
 })
 

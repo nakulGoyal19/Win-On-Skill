@@ -87,10 +87,14 @@ app.put("/changeCoins/:c",(req,res)=>{
         if(req.params.c==0)
         {
             req.body.coins=parseInt(req.body.coins)-20;
+            req.body.games.gamesPlayed=parseInt(req.body.games.gamesPlayed)+1;
+            req.body.games.gamesWon=parseInt(req.body.games.gamesWon)+1;
         }
         else
         {
             req.body.coins=parseInt(req.body.coins)+20;
+            req.body.games.gamesPlayed=parseInt(req.body.games.gamesPlayed)+1;
+            req.body.games.gamesLost=parseInt(req.body.games.gamesLost)+1;
         }
         userModel.updateCoins(req,(e,r)=>{
             if(e)

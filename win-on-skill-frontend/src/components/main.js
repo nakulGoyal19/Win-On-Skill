@@ -48,7 +48,12 @@ export default class Main extends Component{
             const newData={
                 username:v.username,
                 password:v.password,
-                coins:v.coins
+                coins:v.coins,
+                games:{
+                    gamesPlayed:0,
+                    gamesWon:0,
+                    gamesLost:0
+                }
             };
             fetch('http://localhost:8082/addUser',{
                 method:"POST",
