@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
+import {Button} from 'react-bootstrap'
 export default class Profile extends Component{
     render(){
         if(this.props.signedIn==='true')
@@ -12,7 +13,7 @@ export default class Profile extends Component{
                     <h6>Games Won: {this.props.user.games.gamesWon}</h6>
                     <h6>Games Lost: {this.props.user.games.gamesLost}</h6>
                     <Link to='/'>
-                        <button onClick={this.props.changeStateToFalse()}>Logout</button>
+                        <Button variant="danger" onClick={this.props.changeStateToFalse()}>Logout</Button>
                     </Link>
                 </>
             )
@@ -21,9 +22,8 @@ export default class Profile extends Component{
                 <>
                     <h2>Profile Page Space</h2>
                     <h5>You're currently logged in as a guest.</h5>
-                    <Link to='SignIn'>Sign In </Link>
-                    or
-                    <Link to='SignUp'> Sign Up</Link>
+                    <Link to='SignIn'><Button variant="primary">Sign In</Button></Link>
+                    <Link to='SignUp'><Button variant="outline-primary">Sign Up</Button></Link>
 
                 </>
             )

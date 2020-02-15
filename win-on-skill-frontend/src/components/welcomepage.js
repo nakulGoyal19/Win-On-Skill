@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
+import {Button} from 'react-bootstrap';
 export default class WelcomePage extends Component{
     
     render(){
@@ -8,9 +9,9 @@ export default class WelcomePage extends Component{
                 <>
                     <h2>Welcome Page Space</h2>
                     <h5>You are in a guest session
-                    <Link to='SignIn'> SignIn  </Link>
+                    <Link to='SignIn'><Button variant="outline-primary">Sign In</Button></Link>
                     or
-                    <Link to='SignUp'>  SignUp </Link>
+                    <Link to='SignUp'><Button variant="outline-primary">Sign Up</Button></Link>
                     to gain some coins .</h5>
                 </>
             )

@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
+import {Form,Button} from 'react-bootstrap'
 export default class SignUp extends Component{
     state={
         username:"",
@@ -21,36 +22,50 @@ export default class SignUp extends Component{
                 
                 <>
                     <h2>SignUp Page Space</h2>
-                    <form onSubmit={this.props.changeStateToTrue.bind(this,values)}>
-                        <div className="form-group">
-                            <input
-                                type="text"
-                                placeholder="User Name..."
-                                className="form-control"
-                                name="username"
-                                onChange={this.handleChange}
-                                required
-                            />
-                            <input
-                                type="password"
-                                placeholder="Password..."
-                                className="form-control mt-2"
-                                name="password"
-                                onChange={this.handleChange}
-                                required
-                            />
+                    <Form onSubmit={this.props.changeStateToTrue.bind(this,values)}>
+                        <Form.Row>
+                            <Form.Group controlId="formBasicEmail">
+                                <Form.Label>Username : </Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="User Name..."
+                                    className="form-control"
+                                    name="username"
+                                    onChange={this.handleChange}
+                                    required
+                                />
                             
-                                <button type='submit' className="col btn btn-primary mt-2"><Link to='/'>Sign Up</Link></button>
-                            
-                        </div>
-                    </form>
+                            </Form.Group>
+                        </Form.Row>
+                        <Form.Row>
+                            <Form.Group controlId="formBasicPassword">
+                                <Form.Label>Password : </Form.Label>
+                                <Form.Control
+                                    type="password"
+                                    placeholder="Password..."
+                                    className="form-control mt-2"
+                                    name="password"
+                                    onChange={this.handleChange}
+                                    required
+                                />
+                            </Form.Group>
+                        </Form.Row>
+                        <Form.Row>
+                            <Form.Group controlId="formBasicCheckbox">
+                                <Form.Check type="checkbox" label="Check me out" required />
+                            </Form.Group>
+                        </Form.Row>
+                        <Form.Row>
+                            <Button type='submit' variant="primary">Sign Up</Button>
+                        </Form.Row>
+                    </Form>
 
                 </>
             )
         }
         else{
             return(
-                <h4>Sign Up Successful<Link to='/'> Click here </Link>to get to welcome page</h4>
+                <h4>Sign Up Successful<Link to='/'><Button variant="outline-success">Click here</Button></Link>to get to welcome page</h4>
             )
             
         }
