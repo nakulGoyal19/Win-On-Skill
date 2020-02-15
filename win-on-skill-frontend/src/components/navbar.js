@@ -16,7 +16,7 @@ export default class NavBar extends Component{
                             </Link>
                             <Link to='/Quiz' className="nav-item nav-link" href="">Quiz
                             </Link>
-                            <Link to='/Updates' className="nav-item nav-link" href="">Updates
+                            <Link to='/Updates' className="nav-item nav-link disabled" href="">Updates
                             </Link>
                             <Link to='/Profile' className="nav-item nav-link" href="">Profile
                             </Link>
